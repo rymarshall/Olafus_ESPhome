@@ -5,7 +5,7 @@ It assumes a N-channel mosfet to control the switching from the GPIO.
 ESP32 5V (VIN) ── 47Ω ── IR LED 1 ── IR LED 2 ── 2N2222A collector
 
 
-2N2222A emitter ── GND (shared with ESP32 GND)
+2N2222A emitter ── GND 
 
 
 GPIO33 ── 1k ── 2N2222A base
