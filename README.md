@@ -1,6 +1,6 @@
 A circuit to use ESPhome as an IR blaster for an Olafus outdoor light.
 
-It assumes a N-channel mosfet to control the switching from the GPIO.
+It uses an N-channel mosfet to control the switching from the GPIO.
 
 ESP32 5V (VIN) ── 47Ω ── IR LED 1 ── IR LED 2 ── 2N2222A collector
 
