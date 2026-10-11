@@ -1,0 +1,115 @@
+esphome:
+  name: frontyard-ir-1
+  friendly_name: Frontyard IR 1
+  min_version: 2026.4.0
+  name_add_mac_suffix: false
+
+esp32:
+  variant: esp32
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow Over-The-Air updates
+ota:
+  - platform: esphome
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+
+remote_transmitter:
+  - pin: GPIO33
+    id: ir_light1
+    carrier_duty_percent: 50%
+  - pin: GPIO32
+    id: ir_light2
+    carrier_duty_percent: 50%
+
+button:
+  - {platform: template, name: "Light 1 Power", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xBF40}}]}
+  - {platform: template, name: "Light 1 Brightness Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xA35C}}]}
+  - {platform: template, name: "Light 1 Brightness Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xA25D}}]}
+  - {platform: template, name: "Light 1 Play/Pause", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xBE41}}]}
+  - {platform: template, name: "Light 1 Red", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xA758}}]}
+  - {platform: template, name: "Light 1 Green", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xA659}}]}
+  - {platform: template, name: "Light 1 Blue", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xBA45}}]}
+  - {platform: template, name: "Light 1 White", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xBB44}}]}
+  - {platform: template, name: "Light 1 Orange", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xAB54}}]}
+  - {platform: template, name: "Light 1 Light Green", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xAA55}}]}
+  - {platform: template, name: "Light 1 Light Blue", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xB649}}]}
+  - {platform: template, name: "Light 1 White 2", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xB748}}]}
+  - {platform: template, name: "Light 1 Yellow", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xAF50}}]}
+  - {platform: template, name: "Light 1 Teal", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xAE51}}]}
+  - {platform: template, name: "Light 1 Purple", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xB24D}}]}
+  - {platform: template, name: "Light 1 White 3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xB34C}}]}
+  - {platform: template, name: "Light 1 Pale Yellow", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xE31C}}]}
+  - {platform: template, name: "Light 1 Dark Teal", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xE21D}}]}
+  - {platform: template, name: "Light 1 Light Purple", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xE11E}}]}
+  - {platform: template, name: "Light 1 Cold White", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xE01F}}]}
+  - {platform: template, name: "Light 1 Red Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xEB14}}]}
+  - {platform: template, name: "Light 1 Green Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xEA15}}]}
+  - {platform: template, name: "Light 1 Blue Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xE916}}]}
+  - {platform: template, name: "Light 1 Red Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xEF10}}]}
+  - {platform: template, name: "Light 1 Green Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xEE11}}]}
+  - {platform: template, name: "Light 1 Blue Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xED12}}]}
+  - {platform: template, name: "Light 1 Quick", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xE817}}]}
+  - {platform: template, name: "Light 1 Slow", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xEC13}}]}
+  - {platform: template, name: "Light 1 Auto", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF00F}}]}
+  - {platform: template, name: "Light 1 Flash", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF40B}}]}
+  - {platform: template, name: "Light 1 Fade7", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF807}}]}
+  - {platform: template, name: "Light 1 Fade3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF906}}]}
+  - {platform: template, name: "Light 1 Jump7", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xFA05}}]}
+  - {platform: template, name: "Light 1 Jump3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xFB04}}]}
+  - {platform: template, name: "Light 1 Timer 3H", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF708}}]}
+  - {platform: template, name: "Light 1 Timer 6H", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF609}}]}
+  - {platform: template, name: "Light 1 Timer 12H", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF50A}}]}
+  - {platform: template, name: "Light 1 DIY1", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF30C}}]}
+  - {platform: template, name: "Light 1 DIY2", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF20D}}]}
+  - {platform: template, name: "Light 1 DIY3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light1, address: 0xFF00, command: 0xF10E}}]}
+  - {platform: template, name: "Light 2 Power", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xBF40}}]}
+  - {platform: template, name: "Light 2 Brightness Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xA35C}}]}
+  - {platform: template, name: "Light 2 Brightness Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xA25D}}]}
+  - {platform: template, name: "Light 2 Play/Pause", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xBE41}}]}
+  - {platform: template, name: "Light 2 Red", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xA758}}]}
+  - {platform: template, name: "Light 2 Green", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xA659}}]}
+  - {platform: template, name: "Light 2 Blue", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xBA45}}]}
+  - {platform: template, name: "Light 2 White", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xBB44}}]}
+  - {platform: template, name: "Light 2 Orange", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xAB54}}]}
+  - {platform: template, name: "Light 2 Light Green", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xAA55}}]}
+  - {platform: template, name: "Light 2 Light Blue", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xB649}}]}
+  - {platform: template, name: "Light 2 White 2", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xB748}}]}
+  - {platform: template, name: "Light 2 Yellow", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xAF50}}]}
+  - {platform: template, name: "Light 2 Teal", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xAE51}}]}
+  - {platform: template, name: "Light 2 Purple", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xB24D}}]}
+  - {platform: template, name: "Light 2 White 3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xB34C}}]}
+  - {platform: template, name: "Light 2 Pale Yellow", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xE31C}}]}
+  - {platform: template, name: "Light 2 Dark Teal", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xE21D}}]}
+  - {platform: template, name: "Light 2 Light Purple", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xE11E}}]}
+  - {platform: template, name: "Light 2 Cold White", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xE01F}}]}
+  - {platform: template, name: "Light 2 Red Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xEB14}}]}
+  - {platform: template, name: "Light 2 Green Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xEA15}}]}
+  - {platform: template, name: "Light 2 Blue Up", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xE916}}]}
+  - {platform: template, name: "Light 2 Red Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xEF10}}]}
+  - {platform: template, name: "Light 2 Green Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xEE11}}]}
+  - {platform: template, name: "Light 2 Blue Down", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xED12}}]}
+  - {platform: template, name: "Light 2 Quick", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xE817}}]}
+  - {platform: template, name: "Light 2 Slow", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xEC13}}]}
+  - {platform: template, name: "Light 2 Auto", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF00F}}]}
+  - {platform: template, name: "Light 2 Flash", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF40B}}]}
+  - {platform: template, name: "Light 2 Fade7", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF807}}]}
+  - {platform: template, name: "Light 2 Fade3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF906}}]}
+  - {platform: template, name: "Light 2 Jump7", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xFA05}}]}
+  - {platform: template, name: "Light 2 Jump3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xFB04}}]}
+  - {platform: template, name: "Light 2 Timer 3H", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF708}}]}
+  - {platform: template, name: "Light 2 Timer 6H", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF609}}]}
+  - {platform: template, name: "Light 2 Timer 12H", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF50A}}]}
+  - {platform: template, name: "Light 2 DIY1", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF30C}}]}
+  - {platform: template, name: "Light 2 DIY2", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF20D}}]}
+  - {platform: template, name: "Light 2 DIY3", on_press: [{remote_transmitter.transmit_nec: {transmitter_id: ir_light2, address: 0xFF00, command: 0xF10E}}]}
